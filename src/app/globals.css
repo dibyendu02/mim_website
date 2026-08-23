@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
+/*
+ * Placeholder brand tokens (PLACEHOLDER — replace with MiM Digital's real
+ * brand palette/fonts). Components reference these semantic roles, not raw
+ * hex values, so swapping the brand later is a one-file edit.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #0a0a0b;
+  --color-paper: #f7f6f3;
+
+  --color-brand: #5b21f2;
+  --color-brand-light: #8b6bff;
+  --color-brand-accent: #d4ff3f;
+
+  --color-surface: #ffffff;
+  --color-surface-dark: #131316;
+  --color-surface-muted: #f1f0ec;
+
+  --color-text-primary: #0a0a0b;
+  --color-text-muted: #5c5c62;
+  --color-text-inverse: #f7f6f3;
+
+  --section-y: 6rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-paper: var(--color-paper);
+
+  --color-brand: var(--color-brand);
+  --color-brand-light: var(--color-brand-light);
+  --color-brand-accent: var(--color-brand-accent);
+
+  --color-surface: var(--color-surface);
+  --color-surface-dark: var(--color-surface-dark);
+  --color-surface-muted: var(--color-surface-muted);
+
+  --color-text-primary: var(--color-text-primary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+
+  /*
+   * Fluid type scale — deliberately restrained (minimal direction): type
+   * supports the layout, it isn't the layout. Scales smoothly without
+   * breakpoint jumps.
+   */
+  --text-display-xl: clamp(2.5rem, 5vw, 4.5rem);
+  --text-display-xl--line-height: 1.05;
+  --text-display-xl--letter-spacing: -0.02em;
+
+  --text-display-lg: clamp(2rem, 3.5vw, 3.25rem);
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.015em;
+
+  --text-display-md: clamp(1.5rem, 2.5vw, 2.25rem);
+  --text-display-md--line-height: 1.15;
+  --text-display-md--letter-spacing: -0.01em;
+
+  /* Exaggerated corner rounding for the bento-grid aesthetic. */
+  --radius-bento: 1.75rem;
+  --radius-bento-lg: 2.5rem;
+
+  --spacing-section: var(--section-y);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), var(--font-body), sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
