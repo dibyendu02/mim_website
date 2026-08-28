@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 /*
- * Placeholder brand tokens (PLACEHOLDER — replace with MiM Digital's real
- * brand palette/fonts). Components reference these semantic roles, not raw
- * hex values, so swapping the brand later is a one-file edit.
+ * Monochrome brand palette — white, rich black, and two grays. No hue
+ * accent by design. Components reference these semantic roles, not raw hex
+ * values, so the palette stays a one-file edit.
  */
 :root {
-  --color-ink: #0a0a0b;
-  --color-paper: #f7f6f3;
+  --color-ink: #111111;
+  --color-paper: #ffffff;
 
-  --color-brand: #5b21f2;
-  --color-brand-light: #8b6bff;
-  --color-brand-accent: #d4ff3f;
+  --color-brand: #797979;
+  --color-brand-light: #a3a3a3;
+  --color-brand-accent: #f2f2f2;
 
   --color-surface: #ffffff;
-  --color-surface-dark: #131316;
-  --color-surface-muted: #f1f0ec;
+  --color-surface-dark: #111111;
+  --color-surface-muted: #f2f2f2;
 
-  --color-text-primary: #0a0a0b;
-  --color-text-muted: #5c5c62;
-  --color-text-inverse: #f7f6f3;
+  --color-text-primary: #111111;
+  --color-text-muted: #797979;
+  --color-text-inverse: #ffffff;
 
   --section-y: 6rem;
 }

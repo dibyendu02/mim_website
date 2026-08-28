@@ -4,7 +4,7 @@ import type { CtaContent } from "@/lib/types/content";
 
 export function CTASection({ content }: { content: CtaContent }) {
   return (
-    <section className="bg-brand text-text-inverse">
+    <section className="bg-ink text-text-inverse">
       <ScrollReveal className="mx-auto max-w-[1440px] px-6 py-20 text-center sm:px-10 sm:py-28">
         {content.eyebrow && (
           <p className="text-sm font-semibold uppercase tracking-wide text-white/70">{content.eyebrow}</p>

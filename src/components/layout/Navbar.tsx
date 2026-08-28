@@ -30,7 +30,7 @@ export function Navbar() {
   }
 
   return (
-    <motion.header
+    <header
       className={cn(
         "sticky top-0 z-50 transition-colors duration-300",
         overDarkSection
@@ -131,6 +131,6 @@ export function Navbar() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   );
 }

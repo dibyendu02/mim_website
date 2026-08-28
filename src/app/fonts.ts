@@ -1,17 +1,26 @@
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import localFont from "next/font/local";
 
-// Single swap point: replace these two font declarations with MiM's
-// licensed brand fonts once supplied. Everything else references the
-// --font-display / --font-body CSS variables, not these imports directly.
+// Brand typefaces: Clash Display (ITF, via Fontshare) for headings, Switzer
+// (Fontshare) for body copy — self-hosted so there's no runtime dependency
+// on Fontshare's CDN. Everything else references the --font-display /
+// --font-body CSS variables, not these imports directly.
 
-export const displayFont = Bricolage_Grotesque({
+export const displayFont = localFont({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  src: [
+    { path: "./fonts/files/ClashDisplay-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/files/ClashDisplay-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/files/ClashDisplay-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/files/ClashDisplay-Bold.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-export const bodyFont = Inter({
+export const bodyFont = localFont({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  src: [
+    { path: "./fonts/files/Switzer-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/files/Switzer-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/files/Switzer-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/files/Switzer-Bold.woff2", weight: "700", style: "normal" },
+  ],
 });
