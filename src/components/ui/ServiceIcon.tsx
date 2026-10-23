@@ -1,25 +1,18 @@
-import { Camera, LayoutGrid, Palette, Share2, Target, TrendingUp, type LucideIcon } from "lucide-react";
+import { Camera, LayoutTemplate, Palette, Search, Share2, Target, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/cn";
+import type { ServiceIconName } from "@/lib/types/content";
 
-const icons: Record<string, LucideIcon> = {
+// One icon family (Lucide), one stroke weight — spec §5.4.
+const icons: Record<ServiceIconName, LucideIcon> = {
+  share: Share2,
   target: Target,
   camera: Camera,
-  share: Share2,
+  search: Search,
   palette: Palette,
-  "trending-up": TrendingUp,
-  "layout-grid": LayoutGrid,
+  layout: LayoutTemplate,
 };
 
-export function ServiceIcon({ name, className }: { name: string; className?: string }) {
-  const IconComponent = icons[name] ?? LayoutGrid;
-  return (
-    <span
-      className={cn(
-        "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-surface-muted text-brand",
-        className,
-      )}
-    >
-      <IconComponent className="h-5 w-5" strokeWidth={1.75} aria-hidden />
-    </span>
-  );
+export function ServiceIcon({ name, className }: { name: ServiceIconName; className?: string }) {
+  const Icon = icons[name];
+  return <Icon aria-hidden strokeWidth={1.5} className={cn("h-6 w-6 text-accent", className)} />;
 }

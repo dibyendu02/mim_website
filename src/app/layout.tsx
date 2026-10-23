@@ -1,20 +1,28 @@
 import type { Metadata } from "next";
-import { displayFont, bodyFont } from "@/app/fonts";
-import { PageShell } from "@/components/layout/PageShell";
+import { bodyFont, displayFont } from "@/app/fonts";
+import { site } from "@/content/site";
 import "./globals.css";
 
+const title = "MiM Digital — Full-Service Digital Marketing Agency";
+
 export const metadata: Metadata = {
-  title: "MiM Digital — Integrated Marketing, Built Like a System",
-  description:
-    "MiM Digital is a full-service digital marketing agency for 25+ brands — performance marketing, content, social, brand, SEO, and website conversion systems run as one team.",
+  metadataBase: new URL(site.url),
+  title: { default: title, template: "%s — MiM Digital" },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title,
+    description: site.description,
+    locale: "en_IN",
+  },
+  twitter: { card: "summary_large_image", title, description: site.description },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable} h-full antialiased`}>
-      <body className="min-h-full bg-paper font-body text-text-primary">
-        <PageShell>{children}</PageShell>
-      </body>
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}>
+      <body className="min-h-svh bg-canvas font-body text-fg">{children}</body>
     </html>
   );
 }

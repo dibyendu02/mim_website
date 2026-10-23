@@ -1,108 +1,56 @@
 import type { Service } from "@/lib/types/content";
 
-// PLACEHOLDER copy — realistic length/voice so layout holds up once real
-// service descriptions arrive. Swap text fields only; structure stays.
-//
-// `image` is temporary stock photography from Picsum (Unsplash-backed,
-// seeded for a stable URL, no API key needed) — swap for real production
-// stills once MiM supplies them.
-const stockPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/1000/800`;
+// The six approved core services (spec §5.4) — do not add services without
+// approval. Titles and descriptions are approved copy. `deliverables` feed
+// the /services page only and still need MiM sign-off.
 
 export const services: Service[] = [
   {
-    slug: "performance-marketing",
-    image: stockPhoto("performance-marketing"),
-    title: "Performance Marketing",
-    shortDescription: "Paid media that's accountable to a number, not a vibe.",
+    slug: "social-media-marketing",
+    title: "Social Media Marketing",
     description:
-      "We run paid acquisition across search, social, and programmatic as one connected system — built around a target CAC or ROAS from day one, not vanity reach.",
-    deliverables: [
-      "Full-funnel paid media strategy",
-      "Cross-platform campaign management",
-      "Creative testing at scale",
-      "Weekly performance reporting",
-    ],
+      "Build a distinctive digital presence through strategic planning, compelling content and consistent social media management that keeps your brand relevant and connected to its audience.",
+    icon: "share",
+    deliverables: ["Channel strategy", "Content calendars & publishing", "Community management", "Performance reviews"],
+  },
+  {
+    slug: "performance-marketing",
+    title: "Performance Marketing",
+    description:
+      "Turn advertising investment into measurable opportunities through targeted campaigns, audience insights and continuous optimisation focused on customer acquisition and business growth.",
     icon: "target",
-    bentoSize: "lg",
+    deliverables: ["Paid media strategy", "Cross-platform campaign management", "Audience research", "Creative testing"],
   },
   {
     slug: "content-production",
-    image: stockPhoto("content-production"),
-    title: "Content & Production",
-    shortDescription: "Photo and video built for how people actually scroll.",
+    title: "Content Production",
     description:
-      "In-house photography and videography that gives every campaign a steady supply of native-feeling creative, produced fast enough to keep up with paid media's testing cadence.",
-    deliverables: [
-      "Photo & video shoots",
-      "Short-form content systems",
-      "Post-production & editing",
-      "Content calendars",
-    ],
+      "Bring your brand to life through high-quality photography, video and creative assets that capture attention, communicate value and strengthen your marketing across digital platforms.",
     icon: "camera",
-    bentoSize: "md",
+    deliverables: ["Photography", "Video production", "Short-form content", "Post-production & editing"],
   },
   {
-    slug: "social-media-management",
-    image: stockPhoto("social-media-management"),
-    title: "Social Media Management",
-    shortDescription: "Always-on presence that compounds, not just posts.",
+    slug: "search-engine-optimisation",
+    title: "Search Engine Optimisation",
     description:
-      "End-to-end management of always-on channels — strategy, calendar, community, and reporting — so organic and paid pull in the same direction.",
-    deliverables: [
-      "Channel strategy",
-      "Content calendar & publishing",
-      "Community management",
-      "Monthly growth reporting",
-    ],
-    icon: "share",
-    bentoSize: "md",
+      "Improve your visibility across search engines, attract relevant organic traffic and build a stronger foundation for long-term discoverability and growth.",
+    icon: "search",
+    deliverables: ["Technical SEO audits", "Keyword & content strategy", "On-page optimisation", "Local search visibility"],
   },
   {
-    slug: "brand-creative-direction",
-    image: stockPhoto("brand-creative-direction"),
-    title: "Brand & Creative Direction",
-    shortDescription: "A point of view that makes every asset feel like one brand.",
+    slug: "brand-strategy-identity",
+    title: "Brand Strategy & Identity",
     description:
-      "Positioning, visual identity, and creative direction that gives every campaign, shoot, and platform a consistent voice — so growth doesn't come at the cost of coherence.",
-    deliverables: [
-      "Brand positioning & voice",
-      "Visual identity systems",
-      "Campaign creative direction",
-      "Brand guidelines",
-    ],
+      "Define what makes your brand different through clear positioning, distinctive visual identity and cohesive communication that builds recognition and trust.",
     icon: "palette",
-    bentoSize: "sm",
+    deliverables: ["Brand positioning", "Visual identity systems", "Tone of voice", "Brand guidelines"],
   },
   {
-    slug: "seo-organic-growth",
-    image: stockPhoto("seo-organic-growth"),
-    title: "SEO & Organic Growth",
-    shortDescription: "Compounding traffic that doesn't disappear when spend stops.",
+    slug: "website-design-development",
+    title: "Website Design & Development",
     description:
-      "Technical SEO, content strategy, and organic growth systems designed to compound over quarters — the channel that keeps working after the ad budget is spent elsewhere.",
-    deliverables: [
-      "Technical SEO audits",
-      "Content & keyword strategy",
-      "On-page optimization",
-      "Organic performance tracking",
-    ],
-    icon: "trending-up",
-    bentoSize: "sm",
-  },
-  {
-    slug: "website-conversion-systems",
-    image: stockPhoto("website-conversion-systems"),
-    title: "Website & Conversion Systems",
-    shortDescription: "Sites and funnels engineered to convert the traffic you're paying for.",
-    description:
-      "Websites, landing pages, and conversion funnels designed and engineered as a system — so every other channel's traffic actually turns into pipeline.",
-    deliverables: [
-      "Website design & development",
-      "Landing page systems",
-      "CRO & A/B testing",
-      "Analytics & tracking setup",
-    ],
-    icon: "layout-grid",
-    bentoSize: "wide",
+      "Create purposeful digital experiences that communicate your value, establish credibility and turn visitors into meaningful enquiries and business opportunities.",
+    icon: "layout",
+    deliverables: ["UX & website design", "Website development", "Landing pages", "Analytics & tracking setup"],
   },
 ];

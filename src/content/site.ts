@@ -1,42 +1,45 @@
-// Single swap point for nav structure, footer links, and global brand copy.
+import type { Cta } from "@/lib/types/content";
+
+// Single swap point for global brand config, navigation and contact details.
 
 export const site = {
   name: "MiM Digital",
-  tagline: "Integrated marketing, built like a system.",
-  primaryCta: { label: "Book a Strategy Call", href: "/contact" },
+  // TODO(launch): confirm the production domain.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://mimdigital.in",
+  description:
+    "MiM Digital is a full-service digital marketing agency bringing performance marketing, social media, content production, SEO, brand strategy and web development together in one integrated marketing system.",
 };
 
-export const navLinks = [
-  { label: "Home", href: "/" },
+// Spec §5.9: never label a dead link "Book a Strategy Call". Until a booking
+// calendar is configured (NEXT_PUBLIC_BOOKING_URL), the CTA leads to the
+// working enquiry form instead.
+const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL;
+
+export const ctas = {
+  bookCall: { label: "Book a Strategy Call", href: bookingUrl || "/contact#enquiry" },
+  seeWork: { label: "See Our Work", href: "/#work" },
+  allCaseStudies: { label: "View All Case Studies", href: "/case-studies" },
+  exploreServices: { label: "Explore Our Services", href: "/services" },
+  howWeCanHelp: { label: "See How We Can Help", href: "/contact#enquiry" },
+  tellUs: { label: "Tell Us About Your Project", href: "/contact#enquiry" },
+} satisfies Record<string, Cta>;
+
+export const navLinks: Cta[] = [
+  { label: "Work", href: "/case-studies" },
   { label: "Services", href: "/services" },
-  { label: "Case Studies", href: "/case-studies" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
-export const footerLinks = {
-  company: [
-    { label: "About", href: "/about" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Contact", href: "/contact" },
-  ],
-  services: [
-    { label: "Performance Marketing", href: "/services#performance-marketing" },
-    { label: "Content & Production", href: "/services#content-production" },
-    { label: "Social Media Management", href: "/services#social-media-management" },
-    { label: "Brand & Creative Direction", href: "/services#brand-creative-direction" },
-    { label: "SEO & Organic Growth", href: "/services#seo-organic-growth" },
-    { label: "Website & Conversion Systems", href: "/services#website-conversion-systems" },
-  ],
-};
+export const legalLinks: Cta[] = [{ label: "Privacy Policy", href: "/privacy" }];
 
-export const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "X", href: "https://x.com" },
-];
-
-export const contactDetails = {
+// TODO(launch): MiM to supply real contact details. Fields left empty are
+// hidden rather than shown with placeholder values.
+export const contactDetails: { email: string; phone?: string; address?: string } = {
   email: "hello@mimdigital.in",
-  phone: "+91 00000 00000",
-  address: "Mumbai, India",
+  address: "Kolkata, India",
 };
+
+// TODO(launch): add MiM's approved social profile URLs. The footer renders
+// nothing until this list is populated, so no generic/dead links ship.
+export const socialLinks: Cta[] = [];

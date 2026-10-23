@@ -1,30 +1,27 @@
 import type { FaqItem } from "@/lib/types/content";
 
 export const contactHero = {
-  eyebrow: "Get in touch",
-  headline: "Let's build something that grows.",
-  body: "Tell us where growth is stalling and we'll come back with a point of view, not a pitch deck.",
+  eyebrow: "Let’s talk growth",
+  heading: "Tell us about your business.",
+  body: "Share where your business is today, where you want to take it, and what you need help with. We’ll come back to you to arrange a strategy call.",
 };
 
+// PLACEHOLDER answers — confirm with MiM before launch. Avoid promising fixed
+// timelines or outcomes that aren't contractual practice.
 export const faqItems: FaqItem[] = [
   {
     question: "What does a first conversation with MiM look like?",
     answer:
-      "A 30-minute strategy call where we look at what's working, what isn't, and whether we're a fit — no deck, no obligation.",
+      "A strategy call where we look at what’s working, what isn’t, and whether we’re a good fit — no obligation.",
   },
   {
-    question: "Do you work with brands across all six services, or can we start with one?",
+    question: "Can we start with one service?",
     answer:
-      "Most clients start with one or two services and expand as the system proves out. We'll recommend a starting point, not sell you the full stack upfront.",
+      "Yes. Many clients start with one or two services and expand as the work develops. We’ll recommend a sensible starting point rather than the full set upfront.",
   },
   {
-    question: "How quickly can we get started?",
+    question: "Which industries do you work with?",
     answer:
-      "Typically within two weeks of signing — enough time to run a proper audit before the first campaign or sprint kicks off.",
-  },
-  {
-    question: "What size brands do you usually work with?",
-    answer:
-      "We work best with brands that already have product-market fit and are looking to scale acquisition, retention, or brand — not pre-launch.",
+      "We work across architecture and interiors, hospitality, food and beverages, and furniture and lifestyle, and we tailor our approach to each business.",
   },
 ];

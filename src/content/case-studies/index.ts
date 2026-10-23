@@ -1,156 +1,260 @@
 import type { CaseStudy } from "@/lib/types/content";
+import { placeholderPhoto } from "@/content/placeholder";
 
-// PLACEHOLDER data — real client names, metrics, and imagery to replace
-// before launch. Structure (challenge/approach/results, metrics array,
-// gallery) is what CaseStudyCard / strip / detail page all key off of, so
-// new real case studies can be added as new array entries with zero
-// component changes.
+// PLACEHOLDER case studies — client names, copy and imagery are stand-ins so
+// the cards and presentation can be built and reviewed. Spec §5.3 / §10:
+// replace with MiM's nine approved case studies before launch, and publish
+// only verified, approved outcomes. Where metrics are unavailable, describe
+// deliverables and qualitative outcomes — never invent numbers.
 //
-// Gallery images are temporary stock photography from Picsum (Unsplash-
-// backed, seeded for stable URLs, no API key needed) — swap for real
-// campaign/production stills once MiM supplies them.
-const stockPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/1200/900`;
+// Each study is a sequence of slides following the recommended structure
+// (introduction → conclusion); add, drop or reorder slides as evidence
+// requires — the presentation renders whatever is here.
+
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "northline-foods",
-    clientName: "Northline Foods",
-    clientLogo: "/placeholders/logos/northline.svg",
-    industry: "D2C / Food & Beverage",
-    servicesUsed: ["Performance Marketing", "Website & Conversion Systems"],
-    headline: "Turning a seasonal spike into a repeatable acquisition engine",
-    summary:
-      "Rebuilt Northline's paid funnel and checkout flow to convert a one-time festive spike into a system that keeps performing year-round.",
-    heroMetric: { label: "ROAS", value: 186, prefix: "+", suffix: "%" },
-    metrics: [
-      { label: "ROAS", value: 186, prefix: "+", suffix: "%" },
-      { label: "Conversion rate", value: 3.4, suffix: "x" },
-      { label: "CAC", value: 41, prefix: "-", suffix: "%" },
+    slug: "atelier-forma",
+    client: "Atelier Forma",
+    project: "A digital home for a design-led studio",
+    industry: "architecture-interiors",
+    category: "Brand & Web",
+    summary: "Positioning, identity refresh and a portfolio-first website for an interior architecture studio.",
+    cover: placeholderPhoto("cs-forma-cover", "Atelier Forma website shown on a laptop"),
+    featured: true,
+    slides: [
+      {
+        kind: "introduction",
+        heading: "Atelier Forma",
+        body: "An interior architecture studio with an award-worthy body of work and a digital presence that undersold it.",
+        points: ["Industry: Architecture & Interiors", "Services: Brand Strategy & Identity, Website Design & Development"],
+      },
+      {
+        kind: "challenge",
+        heading: "Strong work, weak first impression",
+        body: "Prospective clients found the studio through referrals, then met an outdated website that made projects hard to explore and harder to trust.",
+      },
+      {
+        kind: "strategy",
+        heading: "Let the projects make the argument",
+        body: "We positioned the studio around its process and finished spaces, and planned a site where every page leads back to the work.",
+      },
+      {
+        kind: "creative-direction",
+        heading: "Quiet, architectural, material",
+        body: "A restrained identity built on generous whitespace, a single typeface and photography that lets materials and light do the talking.",
+        images: [placeholderPhoto("cs-forma-creative", "Atelier Forma identity elements")],
+      },
+      {
+        kind: "execution",
+        heading: "What we delivered",
+        points: ["Brand positioning and messaging", "Identity refresh and guidelines", "Portfolio website design and build", "Project photography direction"],
+      },
+      {
+        kind: "the-work",
+        heading: "The work",
+        images: [
+          placeholderPhoto("cs-forma-work-1", "Atelier Forma homepage design"),
+          placeholderPhoto("cs-forma-work-2", "Atelier Forma project page design"),
+        ],
+      },
+      {
+        kind: "outcomes",
+        heading: "Outcomes",
+        body: "Placeholder — to be replaced with verified, approved outcomes or delivered outputs supplied by MiM.",
+      },
+      {
+        kind: "conclusion",
+        heading: "Structure makes good work visible",
+        body: "A clear position and a purposeful website gave the studio a digital presence that matches the quality of its spaces.",
+      },
     ],
-    challenge:
-      "Northline's paid spend spiked hard around festive season but fell off a cliff the rest of the year — the funnel wasn't built to hold attention once the discount ended.",
-    approach:
-      "We rebuilt the acquisition funnel end-to-end: restructured campaigns around always-on evergreen offers, redesigned the checkout flow for mobile, and ran continuous creative testing to keep cost-per-click low outside peak season.",
-    results:
-      "Within two quarters, Northline's off-season ROAS matched their previous festive-season peak, with checkout conversion up 3.4x and CAC down 41%.",
-    gallery: [
-      { type: "image", src: stockPhoto("northline-foods-1"), alt: "Northline Foods campaign visual" },
-      { type: "image", src: stockPhoto("northline-foods-2"), alt: "Northline Foods checkout redesign" },
-    ],
-    testimonial: {
-      quote:
-        "MiM didn't just run our ads better — they rebuilt the whole system so growth didn't depend on a discount code.",
-      authorName: "Riya Kapoor",
-      authorRole: "Head of Growth",
-      clientSlug: "northline-foods",
-      clientName: "Northline Foods",
-      clientLogo: "/placeholders/logos/northline.svg",
-      metric: { label: "ROAS", value: 186, prefix: "+", suffix: "%" },
-    },
   },
   {
-    slug: "verve-fitness",
-    clientName: "Verve Fitness",
-    clientLogo: "/placeholders/logos/verve.svg",
-    industry: "Fitness / Lifestyle",
-    servicesUsed: ["Social Media Management", "Content & Production"],
-    headline: "Building an always-on content engine from three studios",
-    summary:
-      "Stood up a repeatable content system across Verve's studios that turned organic social into their top acquisition channel.",
-    heroMetric: { label: "Organic reach", value: 2.1, suffix: "M" },
-    metrics: [
-      { label: "Organic reach", value: 2.1, suffix: "M" },
-      { label: "Engagement rate", value: 64, prefix: "+", suffix: "%" },
-      { label: "Trial sign-ups from social", value: 3.1, suffix: "x" },
+    slug: "the-coastline-hotel",
+    client: "The Coastline Hotel",
+    project: "Making a boutique stay feel unmissable",
+    industry: "hospitality-hotels",
+    category: "Social & Content",
+    summary: "An always-on social and content programme built around the guest experience.",
+    cover: placeholderPhoto("cs-coastline-cover", "The Coastline Hotel campaign photography"),
+    featured: true,
+    slides: [
+      {
+        kind: "introduction",
+        heading: "The Coastline Hotel",
+        body: "A boutique coastal hotel looking to strengthen direct demand and stand apart from larger chains.",
+        points: ["Industry: Hospitality & Hotels", "Services: Social Media Marketing, Content Production"],
+      },
+      {
+        kind: "challenge",
+        heading: "A memorable stay, a forgettable feed",
+        body: "Guests loved the experience, but the hotel’s social presence was sporadic and didn’t convey what made a stay special.",
+      },
+      {
+        kind: "strategy",
+        heading: "Sell the feeling, not the room",
+        body: "We built a content plan around moments guests remember — mornings, food, the coastline — and a consistent publishing rhythm to keep the brand visible.",
+      },
+      {
+        kind: "creative-direction",
+        heading: "Slow, warm, cinematic",
+        body: "Natural light, unhurried edits and a warm colour treatment that carried across photography, reels and stories.",
+        images: [placeholderPhoto("cs-coastline-creative", "The Coastline Hotel moodboard")],
+      },
+      {
+        kind: "execution",
+        heading: "What we delivered",
+        points: ["Social media strategy", "Seasonal content shoots", "Short-form video series", "Community management"],
+      },
+      {
+        kind: "the-work",
+        heading: "The work",
+        images: [
+          placeholderPhoto("cs-coastline-work-1", "The Coastline Hotel social content"),
+          placeholderPhoto("cs-coastline-work-2", "The Coastline Hotel video stills"),
+        ],
+      },
+      {
+        kind: "outcomes",
+        heading: "Outcomes",
+        body: "Placeholder — to be replaced with verified, approved outcomes or delivered outputs supplied by MiM.",
+      },
+      {
+        kind: "conclusion",
+        heading: "Consistency builds desirability",
+        body: "A steady, recognisable content system turned a great guest experience into a brand people want to discover.",
+      },
     ],
-    challenge:
-      "Verve had strong studios and instructors but inconsistent, one-off social content that didn't compound month over month.",
-    approach:
-      "We embedded a content production system across all three studios — weekly shoot days, a repeatable short-form format, and a community management cadence that turned members into recurring content.",
-    results:
-      "Organic reach grew to 2.1M monthly impressions within five months, with social-attributed trial sign-ups tripling.",
-    gallery: [
-      { type: "image", src: stockPhoto("verve-fitness-1"), alt: "Verve Fitness content shoot" },
-      { type: "image", src: stockPhoto("verve-fitness-2"), alt: "Verve Fitness social campaign" },
-    ],
-    testimonial: {
-      quote:
-        "Social used to be an afterthought for us. Now it's the first place new members hear about Verve.",
-      authorName: "Dev Malhotra",
-      authorRole: "Founder",
-      clientSlug: "verve-fitness",
-      clientName: "Verve Fitness",
-      clientLogo: "/placeholders/logos/verve.svg",
-      metric: { label: "Organic reach", value: 2.1, suffix: "M" },
-    },
   },
   {
-    slug: "kaira-home",
-    clientName: "Kaira Home",
-    clientLogo: "/placeholders/logos/kaira.svg",
-    industry: "D2C / Home & Living",
-    servicesUsed: ["SEO & Organic Growth", "Brand & Creative Direction"],
-    headline: "Compounding organic traffic that doesn't disappear when spend stops",
-    summary:
-      "A technical SEO overhaul and content strategy that made Kaira Home's organic channel bigger than its paid channel within a year.",
-    heroMetric: { label: "Organic traffic", value: 212, prefix: "+", suffix: "%" },
-    metrics: [
-      { label: "Organic traffic", value: 212, prefix: "+", suffix: "%" },
-      { label: "Keywords in top 3", value: 40, suffix: "+" },
-      { label: "Organic revenue share", value: 47, suffix: "%" },
+    slug: "harvest-table",
+    client: "Harvest Table",
+    project: "Launching a neighbourhood restaurant brand",
+    industry: "food-beverages",
+    category: "Brand & Performance",
+    summary: "Identity, launch content and targeted local campaigns for a new restaurant concept.",
+    cover: placeholderPhoto("cs-harvest-cover", "Harvest Table launch campaign photography"),
+    featured: true,
+    slides: [
+      {
+        kind: "introduction",
+        heading: "Harvest Table",
+        body: "A new all-day restaurant concept launching into a crowded local dining scene.",
+        points: ["Industry: Food & Beverages", "Services: Brand Strategy & Identity, Performance Marketing, Content Production"],
+      },
+      {
+        kind: "challenge",
+        heading: "Opening day is not a strategy",
+        body: "The team needed a brand people would recognise and a plan to keep tables full beyond launch week.",
+      },
+      {
+        kind: "strategy",
+        heading: "Local first, then loyal",
+        body: "We focused spend on the surrounding neighbourhoods and paired launch campaigns with content designed to bring guests back.",
+      },
+      {
+        kind: "creative-direction",
+        heading: "Honest food, bold type",
+        body: "An identity with confident typography and close-up food photography that made the menu the hero.",
+        images: [placeholderPhoto("cs-harvest-creative", "Harvest Table identity and menu design")],
+      },
+      {
+        kind: "execution",
+        heading: "What we delivered",
+        points: ["Brand identity and menu design", "Launch photography and video", "Local performance campaigns", "Social media launch plan"],
+      },
+      {
+        kind: "the-work",
+        heading: "The work",
+        images: [
+          placeholderPhoto("cs-harvest-work-1", "Harvest Table campaign creative"),
+          placeholderPhoto("cs-harvest-work-2", "Harvest Table social posts"),
+        ],
+      },
+      {
+        kind: "outcomes",
+        heading: "Outcomes",
+        body: "Placeholder — to be replaced with verified, approved outcomes or delivered outputs supplied by MiM.",
+      },
+      {
+        kind: "conclusion",
+        heading: "Brand and performance, planned together",
+        body: "Launching the identity and the campaigns as one system gave the restaurant a recognisable presence from day one.",
+      },
     ],
-    challenge:
-      "Kaira Home was almost entirely paid-dependent, with organic traffic flat for over a year and a site architecture that was actively hurting rankings.",
-    approach:
-      "We ran a full technical SEO audit and fix pass, rebuilt the site's content architecture around commercial-intent keywords, and paired it with a quarterly content calendar tied to product launches.",
-    results:
-      "Organic traffic more than tripled in twelve months, with 40+ keywords ranking in the top 3 and organic now driving nearly half of total revenue.",
-    gallery: [
-      { type: "image", src: stockPhoto("kaira-home-1"), alt: "Kaira Home SEO strategy" },
-      { type: "image", src: stockPhoto("kaira-home-2"), alt: "Kaira Home brand refresh" },
-    ],
-    testimonial: {
-      quote: "Organic used to be a rounding error for us. It's now our most profitable channel.",
-      authorName: "Ananya Sen",
-      authorRole: "CMO",
-      clientSlug: "kaira-home",
-      clientName: "Kaira Home",
-      clientLogo: "/placeholders/logos/kaira.svg",
-      metric: { label: "Organic traffic", value: 212, prefix: "+", suffix: "%" },
-    },
   },
   {
-    slug: "solstice-bank",
-    clientName: "Solstice",
-    clientLogo: "/placeholders/logos/solstice.svg",
-    industry: "Fintech",
-    servicesUsed: ["Brand & Creative Direction", "Website & Conversion Systems"],
-    headline: "A brand and site rebuild that made a fintech feel trustworthy at a glance",
-    summary:
-      "Repositioned Solstice's brand and rebuilt their site around clarity and trust signals, lifting lead conversion without changing traffic volume.",
-    heroMetric: { label: "Lead conversion", value: 38, prefix: "+", suffix: "%" },
-    metrics: [
-      { label: "Lead conversion", value: 38, prefix: "+", suffix: "%" },
-      { label: "Time to first action", value: 52, prefix: "-", suffix: "%" },
-      { label: "Bounce rate", value: 29, prefix: "-", suffix: "%" },
+    slug: "oak-and-loom",
+    client: "Oak & Loom",
+    project: "Turning furniture into stories worth sharing",
+    industry: "furniture-lifestyle",
+    category: "Content & SEO",
+    summary: "Lifestyle content and an SEO foundation for a furniture and homeware brand.",
+    cover: placeholderPhoto("cs-oak-cover", "Oak & Loom lifestyle photography"),
+    featured: true,
+    slides: [
+      {
+        kind: "introduction",
+        heading: "Oak & Loom",
+        body: "A furniture and homeware brand with beautiful products and limited visibility beyond its showroom.",
+        points: ["Industry: Furniture & Lifestyle", "Services: Content Production, Search Engine Optimisation"],
+      },
+      {
+        kind: "challenge",
+        heading: "Products without a story",
+        body: "Catalogue-style imagery and thin product pages made it hard for the brand to be found or remembered online.",
+      },
+      {
+        kind: "strategy",
+        heading: "Show the life around the product",
+        body: "We planned lifestyle content that placed products in real spaces, and restructured the site so that content could be discovered in search.",
+      },
+      {
+        kind: "creative-direction",
+        heading: "Lived-in, tactile, calm",
+        body: "Styled rooms, natural textures and soft daylight — images that feel like a home, not a showroom.",
+        images: [placeholderPhoto("cs-oak-creative", "Oak & Loom styled room photography")],
+      },
+      {
+        kind: "execution",
+        heading: "What we delivered",
+        points: ["Lifestyle photography", "Product content for web and social", "Technical SEO audit and fixes", "Category page content"],
+      },
+      {
+        kind: "the-work",
+        heading: "The work",
+        images: [
+          placeholderPhoto("cs-oak-work-1", "Oak & Loom product photography"),
+          placeholderPhoto("cs-oak-work-2", "Oak & Loom category page design"),
+        ],
+      },
+      {
+        kind: "outcomes",
+        heading: "Outcomes",
+        body: "Placeholder — to be replaced with verified, approved outcomes or delivered outputs supplied by MiM.",
+      },
+      {
+        kind: "conclusion",
+        heading: "Content that works twice",
+        body: "Planning content for both people and search meant every shoot strengthened the brand and its discoverability.",
+      },
     ],
-    challenge:
-      "Solstice had solid product-market fit but a brand and website that read as generic fintech — visitors bounced before understanding the actual offer.",
-    approach:
-      "We repositioned the brand around a single clear promise, redesigned the visual identity, and rebuilt the marketing site with conversion-first UX — clarifying the offer above the fold and cutting form friction.",
-    results:
-      "With no change in traffic volume, lead conversion rose 38% and bounce rate dropped 29%, driven almost entirely by clarity, not new spend.",
-    gallery: [
-      { type: "image", src: stockPhoto("solstice-bank-1"), alt: "Solstice brand identity" },
-      { type: "image", src: stockPhoto("solstice-bank-2"), alt: "Solstice website redesign" },
-    ],
-    testimonial: {
-      quote: "The rebrand didn't just look better — it made the product easier to say yes to.",
-      authorName: "Kabir Rao",
-      authorRole: "Co-founder",
-      clientSlug: "solstice-bank",
-      clientName: "Solstice",
-      clientLogo: "/placeholders/logos/solstice.svg",
-      metric: { label: "Lead conversion", value: 38, prefix: "+", suffix: "%" },
-    },
   },
 ];
+
+export function getCaseStudy(slug: string) {
+  return caseStudies.find((study) => study.slug === slug);
+}
+
+export const featuredCaseStudies = caseStudies.filter((study) => study.featured);
+
+export const slideLabels: Record<CaseStudy["slides"][number]["kind"], string> = {
+  introduction: "Introduction",
+  challenge: "Challenge",
+  strategy: "Strategy",
+  "creative-direction": "Creative direction",
+  execution: "Execution",
+  "the-work": "The work",
+  outcomes: "Outcomes",
+  conclusion: "Conclusion",
+};

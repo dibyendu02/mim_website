@@ -1,53 +1,16 @@
-import type { Metric } from "@/lib/types/content";
-
-// PLACEHOLDER — real photo pulled from MiM Digital's current homepage hero.
-// Attributed by role only pending confirmation of name/title for the site.
-export const founderNote = {
-  role: "Founder & CEO, MiM Digital",
-  image: "/about/founder.png",
-  quote:
-    "I started MiM because I was tired of watching good brands get pulled apart by their own marketing — a performance team, a content team, and a brand team, all technically \"aligned,\" all quietly working against each other. We built MiM to be the opposite: one team, one number, one system. That's still the only thing we optimize for.",
-};
+// About page copy. The founder note is PLACEHOLDER copy pending MiM's
+// approval; the photo is from MiM Digital's current site. Attributed by role
+// only until name/title are confirmed for the site.
 
 export const aboutHero = {
   eyebrow: "About MiM Digital",
-  headline: "We treat marketing like a system, not a series of campaigns.",
-  body: "MiM Digital is an integrated marketing team for brands that have outgrown fragmented vendors — one team across performance, content, brand, SEO, and the sites that convert it all.",
+  heading: "One integrated team for strategy, creativity and digital execution.",
+  body: "MiM Digital brings performance, content, brand, SEO and web development together in one integrated marketing system, helping brands build a stronger presence and drive business growth.",
 };
 
-export const narrativeSteps = [
-  {
-    title: "Most marketing fails from fragmentation.",
-    body: "A performance team optimizing for clicks, a content team optimizing for likes, a brand team optimizing for taste — pulling in different directions and quietly cancelling each other out.",
-  },
-  {
-    title: "Structure is what makes growth repeatable.",
-    body: "We build one system per client: a shared goal, a shared calendar, and every channel accountable to the same number.",
-  },
-  {
-    title: "That's what 'built for consistency' means.",
-    body: "Not sameness — consistency in what every channel is optimizing toward, so results compound instead of resetting every quarter.",
-  },
-];
-
-export const milestones: Metric[] = [
-  { label: "Brands served", value: 25, suffix: "+" },
-  { label: "Years operating", value: 6, suffix: "+" },
-  { label: "Campaigns run", value: 480, suffix: "+" },
-  { label: "Avg. client tenure (months)", value: 22 },
-];
-
-export const teamValues = [
-  {
-    title: "Numbers over narratives",
-    body: "Every recommendation is tied to a metric we're willing to be judged on.",
-  },
-  {
-    title: "One team, one calendar",
-    body: "Performance, content, and brand sit in the same room, not separate retainers.",
-  },
-  {
-    title: "Built to compound",
-    body: "We optimize for systems that keep working next quarter, not just this campaign.",
-  },
-];
+export const founderNote = {
+  role: "Founder, MiM Digital",
+  image: { src: "/about/founder.png", alt: "Founder of MiM Digital", width: 800, height: 1000 },
+  quote:
+    "Good brands get pulled apart when every part of their marketing works on its own. We built MiM so strategy, content, performance and the website work as one system — with structure that lets growth build on itself.",
+};
