@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { CaseStudyHero } from "@/components/sections/CaseStudyHero";
 import { StatsRow } from "@/components/sections/StatsRow";
 import { Gallery } from "@/components/sections/Gallery";
-import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
@@ -59,12 +58,6 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
         <Gallery items={study.gallery} />
       </section>
-
-      {study.testimonial && (
-        <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
-          <TestimonialCarousel testimonials={[study.testimonial]} />
-        </section>
-      )}
 
       {related.length > 0 && (
         <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
