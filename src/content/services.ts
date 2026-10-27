@@ -3,6 +3,9 @@ import type { Service } from "@/lib/types/content";
 // PLACEHOLDER copy — realistic length/voice so layout holds up once real
 // service descriptions arrive. Swap text fields only; structure stays.
 //
+// Order + bentoSize drive the bento grid: the two "lg" core services sit
+// side by side as highlighted tiles, the four "sm" ones fill the row below.
+//
 // `image` is temporary stock photography from Picsum (Unsplash-backed,
 // seeded for a stable URL, no API key needed) — swap for real production
 // stills once MiM supplies them.
@@ -26,22 +29,6 @@ export const services: Service[] = [
     bentoSize: "lg",
   },
   {
-    slug: "content-production",
-    image: stockPhoto("content-production"),
-    title: "Content & Production",
-    shortDescription: "Photo and video built for how people actually scroll.",
-    description:
-      "In-house photography and videography that gives every campaign a steady supply of native-feeling creative, produced fast enough to keep up with paid media's testing cadence.",
-    deliverables: [
-      "Photo & video shoots",
-      "Short-form content systems",
-      "Post-production & editing",
-      "Content calendars",
-    ],
-    icon: "camera",
-    bentoSize: "md",
-  },
-  {
     slug: "social-media-management",
     image: stockPhoto("social-media-management"),
     title: "Social Media Management",
@@ -55,7 +42,23 @@ export const services: Service[] = [
       "Monthly growth reporting",
     ],
     icon: "share",
-    bentoSize: "md",
+    bentoSize: "lg",
+  },
+  {
+    slug: "content-production",
+    image: stockPhoto("content-production"),
+    title: "Content & Production",
+    shortDescription: "Photo and video built for how people actually scroll.",
+    description:
+      "In-house photography and videography that gives every campaign a steady supply of native-feeling creative, produced fast enough to keep up with paid media's testing cadence.",
+    deliverables: [
+      "Photo & video shoots",
+      "Short-form content systems",
+      "Post-production & editing",
+      "Content calendars",
+    ],
+    icon: "camera",
+    bentoSize: "sm",
   },
   {
     slug: "brand-creative-direction",
@@ -103,6 +106,6 @@ export const services: Service[] = [
       "Analytics & tracking setup",
     ],
     icon: "layout-grid",
-    bentoSize: "wide",
+    bentoSize: "sm",
   },
 ];

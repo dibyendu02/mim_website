@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Nova</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <path d="M16 3 L19 16 L31 20 L19 24 L16 37 L13 24 L1 20 L13 16 Z" fill="currentColor"/>
+  <text x="40" y="26.6" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" letter-spacing="3.5" fill="currentColor">NOVA</text>
 </svg>

@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Pivot</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <rect x="7" y="11" width="18" height="18" transform="rotate(45 16 20)" stroke="currentColor" stroke-width="3.5"/><circle cx="16" cy="20" r="3" fill="currentColor"/>
+  <text x="40" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="-0.3" fill="currentColor">Pivot</text>
 </svg>

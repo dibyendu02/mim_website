@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Orbit</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <ellipse cx="16" cy="20" rx="14" ry="7" transform="rotate(-25 16 20)" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="20" r="5" fill="currentColor"/>
+  <text x="40" y="28.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="600" letter-spacing="0" fill="currentColor">orbit</text>
 </svg>

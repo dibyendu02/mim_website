@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Harbor</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <path d="M2 15c4.7-4 9.3-4 14 0s9.3 4 14 0M2 23c4.7-4 9.3-4 14 0s9.3 4 14 0M2 31c4.7-4 9.3-4 14 0s9.3 4 14 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+  <text x="40" y="27.7" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600" letter-spacing="0.3" fill="currentColor">harbor</text>
 </svg>

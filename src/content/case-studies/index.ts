@@ -9,7 +9,8 @@ import type { CaseStudy } from "@/lib/types/content";
 // Gallery images are temporary stock photography from Picsum (Unsplash-
 // backed, seeded for stable URLs, no API key needed) — swap for real
 // campaign/production stills once MiM supplies them.
-const stockPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/1200/900`;
+// Sized for the full-bleed detail-page hero carousel, which also uses these.
+const stockPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/2400/1600`;
 export const caseStudies: CaseStudy[] = [
   {
     slug: "northline-foods",

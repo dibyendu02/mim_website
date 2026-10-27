@@ -2,7 +2,7 @@
 
 export const site = {
   name: "MiM Digital",
-  tagline: "Integrated marketing, built like a system.",
+  tagline: "Eastern India's growth marketing partner.",
   primaryCta: { label: "Book a Strategy Call", href: "/contact" },
 };
 

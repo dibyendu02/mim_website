@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Lume</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <path d="M16 3 C17 15 17 15 29 20 C17 25 17 25 16 37 C15 25 15 25 3 20 C15 15 15 15 16 3 Z" fill="currentColor"/>
+  <text x="40" y="28.4" font-family="Georgia, &apos;Times New Roman&apos;, serif" font-size="24" font-weight="400" letter-spacing="0.5" fill="currentColor">lume</text>
 </svg>

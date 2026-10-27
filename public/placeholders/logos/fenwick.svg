@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Fenwick</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <rect x="2" y="6" width="28" height="28" rx="7" fill="currentColor"/><path d="M12 28V12h10M12 20h8" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+  <text x="40" y="27.4" font-family="Georgia, &apos;Times New Roman&apos;, serif" font-size="21" font-weight="700" letter-spacing="0" fill="currentColor">Fenwick</text>
 </svg>

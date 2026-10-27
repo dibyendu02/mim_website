@@ -34,6 +34,7 @@ export default function ServicesPage() {
               description={service.shortDescription}
               icon={service.icon}
               href={`#${service.slug}`}
+              points={service.deliverables}
             />
           ))}
         </BentoGrid>

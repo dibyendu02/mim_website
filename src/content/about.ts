@@ -1,5 +1,3 @@
-import type { Metric } from "@/lib/types/content";
-
 // PLACEHOLDER — real photo pulled from MiM Digital's current homepage hero.
 // Attributed by role only pending confirmation of name/title for the site.
 export const founderNote = {
@@ -24,17 +22,6 @@ export const narrativeSteps = [
     title: "Structure is what makes growth repeatable.",
     body: "We build one system per client: a shared goal, a shared calendar, and every channel accountable to the same number.",
   },
-  {
-    title: "That's what 'built for consistency' means.",
-    body: "Not sameness — consistency in what every channel is optimizing toward, so results compound instead of resetting every quarter.",
-  },
-];
-
-export const milestones: Metric[] = [
-  { label: "Brands served", value: 25, suffix: "+" },
-  { label: "Years operating", value: 6, suffix: "+" },
-  { label: "Campaigns run", value: 480, suffix: "+" },
-  { label: "Avg. client tenure (months)", value: 22 },
 ];
 
 export const teamValues = [

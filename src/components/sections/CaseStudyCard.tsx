@@ -9,7 +9,7 @@ import type { CaseStudy } from "@/lib/types/content";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
-    <Link href={`/case-studies/${study.slug}`} className="group block">
+    <Link href={`/case-studies/${study.slug}`} className="group block h-full">
       <motion.article
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}

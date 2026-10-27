@@ -1,11 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
-function getInitialReducedMotion() {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const QUERY = "(prefers-reduced-motion: reduce)";
+
+function subscribe(onChange: () => void) {
+  const query = window.matchMedia(QUERY);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
 }
+
+const getSnapshot = () => window.matchMedia(QUERY).matches;
+const getServerSnapshot = () => false;
 
 /**
  * Single source of truth for prefers-reduced-motion, consumed by every
@@ -13,20 +19,11 @@ function getInitialReducedMotion() {
  * so reduced-motion users get instant final-state content instead of a
  * half-animated, broken layout.
  *
- * Initial value is read in useState's lazy initializer (runs once, safely
- * guarded for SSR) so the effect only ever calls setState from the media
- * query's own change callback — a straightforward subscription, not a
- * synchronous set on every mount.
+ * useSyncExternalStore hydrates with the server snapshot (false) and then
+ * re-renders with the real media-query value, so the first client render
+ * always matches the server HTML — reading matchMedia during the initial
+ * render would cause a hydration mismatch for reduced-motion users.
  */
 export function usePrefersReducedMotion() {
-  const [reduced, setReduced] = useState(getInitialReducedMotion);
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = (event: MediaQueryListEvent) => setReduced(event.matches);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
-
-  return reduced;
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

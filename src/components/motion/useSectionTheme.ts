@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 
 /**
- * Watches every element tagged data-nav-theme="dark" and reports whether one
- * currently sits at the vertical center of the viewport. The navbar uses
+ * Watches every element tagged data-nav-theme={theme} and reports whether one
+ * currently intersects the given viewport band (default: the vertical
+ * center line). The navbar uses
  * this to flip to a dark (black bg, white text) treatment while a full-bleed
  * dark section — e.g. the pinned ScrollNarrative — is behind it, instead of
  * staying in its light "scrolled" state and clashing with it.
@@ -13,7 +14,7 @@ import { useEffect, useState } from "react";
  * working across client-side route changes without depending on pathname
  * timing (the navbar persists across navigations, page content doesn't).
  */
-export function useSectionTheme() {
+export function useSectionTheme(theme = "dark", rootMargin = "-50% 0px -50% 0px") {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -34,12 +35,12 @@ export function useSectionTheme() {
         });
         recompute();
       },
-      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
+      { rootMargin, threshold: 0 },
     );
 
     const observed = new WeakSet<Element>();
     const scan = () => {
-      document.querySelectorAll("[data-nav-theme='dark']").forEach((el) => {
+      document.querySelectorAll(`[data-nav-theme='${theme}']`).forEach((el) => {
         if (!observed.has(el)) {
           observed.add(el);
           intersectionObserver.observe(el);
@@ -58,7 +59,7 @@ export function useSectionTheme() {
       intersectionObserver.disconnect();
       mutationObserver.disconnect();
     };
-  }, []);
+  }, [theme, rootMargin]);
 
   return isDark;
 }

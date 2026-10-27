@@ -52,6 +52,12 @@ export interface CaseStudy {
   testimonial?: Testimonial;
 }
 
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+}
+
 export interface Logo {
   name: string;
   src: string;

@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { KineticHeadline } from "@/components/sections/KineticHeadline";
+import { CaseStudyHero } from "@/components/sections/CaseStudyHero";
 import { StatsRow } from "@/components/sections/StatsRow";
 import { Gallery } from "@/components/sections/Gallery";
 import { TestimonialCarousel } from "@/components/sections/TestimonialCarousel";
 import { CaseStudyCard } from "@/components/sections/CaseStudyCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { Badge } from "@/components/ui/Badge";
-import { AnimatedCounter } from "@/components/sections/AnimatedCounter";
 import { caseStudies } from "@/content/case-studies";
 import { homeCta } from "@/content/home";
 
@@ -40,26 +37,9 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
 
   return (
     <>
-      <section className="mx-auto max-w-[1440px] px-6 pb-16 pt-20 sm:px-10 sm:pt-28">
-        <div className="flex flex-wrap items-center gap-3">
-          <Image src={study.clientLogo} alt={study.clientName} width={100} height={26} className="h-6 w-auto" />
-          <Badge>{study.industry}</Badge>
-          {study.servicesUsed.map((service) => (
-            <span key={service} className="text-sm text-text-muted">
-              {service}
-            </span>
-          ))}
-        </div>
+      <CaseStudyHero study={study} />
 
-        <KineticHeadline text={study.headline} className="mt-8 max-w-4xl text-display-lg" />
-
-        <p className="mt-6 font-display text-display-md font-semibold text-brand">
-          <AnimatedCounter value={study.heroMetric.value} prefix={study.heroMetric.prefix} suffix={study.heroMetric.suffix} />
-          <span className="ml-3 text-lg font-body font-normal text-text-muted">{study.heroMetric.label}</span>
-        </p>
-      </section>
-
-      <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
+      <section className="mx-auto max-w-[1440px] px-6 py-section sm:px-10">
         <StatsRow metrics={study.metrics} />
       </section>
 

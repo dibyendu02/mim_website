@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { registerGsapPlugins } from "@/lib/animation/gsapConfig";
 import { usePrefersReducedMotion } from "@/components/motion/useReducedMotion";
 import { cn } from "@/lib/cn";
@@ -19,9 +20,14 @@ interface ScrollNarrativeProps {
 }
 
 /**
- * The one GSAP ScrollTrigger pinned scrollytelling component on the site —
- * shared by the Home teaser and the About full narrative. Deliberately kept
- * to a single instance per page to avoid stacked-pin scroll jank.
+ * The one GSAP ScrollTrigger pinned scrollytelling component on the site.
+ * Deliberately kept to a single instance per page to avoid stacked-pin
+ * scroll jank.
+ *
+ * Scroll position only *selects* the active step; the crossfade itself is a
+ * fixed-duration tween, so steps never freeze half-faded on top of each
+ * other. Snap settles the scroll on the nearest step when the user stops
+ * between two.
  */
 export function ScrollNarrative({ eyebrow, steps, className }: ScrollNarrativeProps) {
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -29,32 +35,50 @@ export function ScrollNarrative({ eyebrow, steps, className }: ScrollNarrativePr
   const reducedMotion = usePrefersReducedMotion();
 
   useGSAP(
-    () => {
-      if (reducedMotion || !wrapperRef.current) return;
+    (_context, contextSafe) => {
+      if (reducedMotion || !wrapperRef.current || !contextSafe) return;
       registerGsapPlugins();
 
       const validSteps = stepRefs.current.filter((el): el is HTMLDivElement => Boolean(el));
-      if (validSteps.length < 2) return;
+      const lastIndex = validSteps.length - 1;
+      if (lastIndex < 1) return;
 
       gsap.set(validSteps, { autoAlpha: 0, y: 24 });
       gsap.set(validSteps[0], { autoAlpha: 1, y: 0 });
 
-      const timeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: wrapperRef.current,
-          start: "top top",
-          end: () => `+=${validSteps.length * 600}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
+      let active = 0;
+      const show = contextSafe((next: number) => {
+        if (next === active) return;
+        const direction = next > active ? 1 : -1;
+        gsap.to(validSteps[active], {
+          autoAlpha: 0,
+          y: -24 * direction,
+          duration: 0.4,
+          ease: "power2.in",
+          overwrite: true,
+        });
+        gsap.fromTo(
+          validSteps[next],
+          { autoAlpha: 0, y: 24 * direction },
+          { autoAlpha: 1, y: 0, duration: 0.6, delay: 0.25, ease: "power3.out", overwrite: true },
+        );
+        active = next;
       });
 
-      validSteps.forEach((step, index) => {
-        if (index === 0) return;
-        timeline
-          .to(validSteps[index - 1], { autoAlpha: 0, y: -24, duration: 0.4 })
-          .fromTo(step, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.4 }, "<");
+      ScrollTrigger.create({
+        trigger: wrapperRef.current,
+        start: "top top",
+        // One viewport of scroll per step change.
+        end: () => `+=${lastIndex * window.innerHeight}`,
+        pin: true,
+        anticipatePin: 1,
+        snap: {
+          snapTo: 1 / lastIndex,
+          duration: { min: 0.2, max: 0.6 },
+          delay: 0.05,
+          ease: "power2.inOut",
+        },
+        onUpdate: (self) => show(Math.round(self.progress * lastIndex)),
       });
     },
     { scope: wrapperRef, dependencies: [reducedMotion, steps.length] },

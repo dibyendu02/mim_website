@@ -15,6 +15,11 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const overDarkSection = useSectionTheme();
+  // Full-bleed image heroes (data-nav-theme="overlay") sit behind the header;
+  // while one is under the top of the viewport the header goes transparent
+  // with light text and the hero's own gradient provides contrast.
+  const overImageHero = useSectionTheme("overlay", "0px 0px -90% 0px") && !mobileOpen;
+  const inverse = overDarkSection || overImageHero;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
@@ -33,14 +38,16 @@ export function Navbar() {
     <header
       className={cn(
         "sticky top-0 z-50 transition-colors duration-300",
-        overDarkSection
-          ? "bg-ink text-text-inverse shadow-sm"
-          : scrolled
-            ? "bg-surface/90 text-ink shadow-sm backdrop-blur"
-            : "bg-transparent text-ink",
+        overImageHero
+          ? "bg-transparent text-text-inverse"
+          : overDarkSection
+            ? "bg-ink text-text-inverse shadow-sm"
+            : scrolled
+              ? "bg-surface/90 text-ink shadow-sm backdrop-blur"
+              : "bg-transparent text-ink",
       )}
     >
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 sm:px-10">
+      <div className="mx-auto flex h-18 max-w-[1440px] items-center justify-between px-6 sm:px-10">
         <Link href="/" className="font-display text-lg font-bold tracking-tight">
           {site.name}
         </Link>
@@ -52,8 +59,8 @@ export function Navbar() {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors",
-                overDarkSection ? "text-text-inverse/70 hover:text-text-inverse" : "text-text-muted hover:text-ink",
-                pathname === link.href && (overDarkSection ? "text-text-inverse" : "text-ink"),
+                inverse ? "text-text-inverse/70 hover:text-text-inverse" : "text-text-muted hover:text-ink",
+                pathname === link.href && (inverse ? "text-text-inverse" : "text-ink"),
               )}
             >
               {link.label}
@@ -67,7 +74,7 @@ export function Navbar() {
             variant="primary"
             className={cn(
               "px-5 py-2.5 text-xs",
-              overDarkSection && "bg-brand-accent text-ink hover:bg-brand hover:text-text-inverse",
+              inverse && "bg-brand-accent text-ink hover:bg-brand hover:text-text-inverse",
             )}
           >
             Get in Touch
@@ -84,21 +91,21 @@ export function Navbar() {
           <span
             className={cn(
               "h-0.5 w-6 transition-transform",
-              overDarkSection ? "bg-text-inverse" : "bg-ink",
+              inverse ? "bg-text-inverse" : "bg-ink",
               mobileOpen && "translate-y-2 rotate-45",
             )}
           />
           <span
             className={cn(
               "h-0.5 w-6 transition-opacity",
-              overDarkSection ? "bg-text-inverse" : "bg-ink",
+              inverse ? "bg-text-inverse" : "bg-ink",
               mobileOpen && "opacity-0",
             )}
           />
           <span
             className={cn(
               "h-0.5 w-6 transition-transform",
-              overDarkSection ? "bg-text-inverse" : "bg-ink",
+              inverse ? "bg-text-inverse" : "bg-ink",
               mobileOpen && "-translate-y-2 -rotate-45",
             )}
           />
@@ -112,14 +119,14 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className={cn("overflow-hidden md:hidden", overDarkSection ? "bg-ink" : "bg-surface")}
+            className={cn("overflow-hidden md:hidden", inverse ? "bg-ink" : "bg-surface")}
           >
             <div className="flex flex-col gap-4 px-6 pb-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn("text-base font-medium", overDarkSection ? "text-text-inverse" : "text-ink")}
+                  className={cn("text-base font-medium", inverse ? "text-text-inverse" : "text-ink")}
                 >
                   {link.label}
                 </Link>

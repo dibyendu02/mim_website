@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePrefersReducedMotion } from "@/components/motion/useReducedMotion";
 import { site } from "@/content/site";
@@ -8,9 +8,27 @@ import { site } from "@/content/site";
 const MIN_VISIBLE_MS = 1200;
 const SESSION_KEY = "mim-preloaded";
 
-function wasAlreadyShown() {
+// Read once at module load (i.e. before this page load's preloader can set
+// the flag) so the value stays stable for the whole session's renders.
+const shownBeforeThisLoad = (() => {
   if (typeof window === "undefined") return false;
-  return sessionStorage.getItem(SESSION_KEY) === "1";
+  try {
+    return sessionStorage.getItem(SESSION_KEY) === "1";
+  } catch {
+    return false;
+  }
+})();
+
+const noopSubscribe = () => () => {};
+
+// Server snapshot is false so hydration matches the SSR'd overlay; React then
+// re-renders with the real session value and drops the overlay if needed.
+function useWasAlreadyShown() {
+  return useSyncExternalStore(
+    noopSubscribe,
+    () => shownBeforeThisLoad,
+    () => false,
+  );
 }
 
 /**
@@ -20,7 +38,7 @@ function wasAlreadyShown() {
  */
 export function Preloader() {
   const reducedMotion = usePrefersReducedMotion();
-  const [alreadyShown] = useState(wasAlreadyShown);
+  const alreadyShown = useWasAlreadyShown();
   const [visible, setVisible] = useState(true);
   const [progress, setProgress] = useState(0);
   const shouldRun = !alreadyShown && !reducedMotion;
@@ -56,6 +74,9 @@ export function Preloader() {
     return () => {
       window.clearInterval(progressTimer);
       window.removeEventListener("load", finish);
+      // shouldRun can flip to false right after hydration (session flag or
+      // reduced motion only known client-side) — never leave scroll locked.
+      document.body.style.overflow = "";
     };
   }, [shouldRun]);
 

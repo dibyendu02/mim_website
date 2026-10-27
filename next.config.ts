@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "picsum.photos" },
       { protocol: "https", hostname: "fastly.picsum.photos" },
+      // Placeholder team portraits (src/content/team.ts) — remove once real
+      // team photos are added to /public.
+      { protocol: "https", hostname: "randomuser.me", pathname: "/api/portraits/**" },
     ],
   },
 };

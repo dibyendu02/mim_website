@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Northline</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <circle cx="16" cy="20" r="13" stroke="currentColor" stroke-width="3"/><path d="M16 9 L21 25 L16 22 L11 25 Z" fill="currentColor"/>
+  <text x="40" y="25.2" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="1.5" fill="currentColor">NORTHLINE</text>
 </svg>

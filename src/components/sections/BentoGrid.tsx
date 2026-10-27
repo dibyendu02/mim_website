@@ -15,7 +15,7 @@ export function BentoGrid({ children, className }: { children: React.ReactNode; 
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-80px" }}
-      className={cn("grid auto-rows-[minmax(180px,auto)] grid-cols-2 gap-4 md:grid-cols-4 md:gap-6", className)}
+      className={cn("grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4", className)}
     >
       {children}
     </motion.div>

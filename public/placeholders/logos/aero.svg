@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="none">
-  <text x="0" y="28" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" letter-spacing="1" fill="currentColor">Aero</text>
+  <!-- PLACEHOLDER client logo: replace with the real brand asset before launch. -->
+  <path d="M2 32 L16 6 L30 32 L16 24 Z" fill="currentColor"/>
+  <text x="40" y="28.4" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" letter-spacing="-0.5" fill="currentColor">aero</text>
 </svg>

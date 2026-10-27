@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Hero } from "@/components/sections/Hero";
 import { ScrollNarrative } from "@/components/sections/ScrollNarrative";
-import { StatsRow } from "@/components/sections/StatsRow";
 import { CTASection } from "@/components/sections/CTASection";
 import { ScrollReveal } from "@/components/motion/ScrollReveal";
-import { aboutHero, founderNote, narrativeSteps, milestones, teamValues } from "@/content/about";
+import { aboutHero, founderNote, narrativeSteps, teamValues } from "@/content/about";
 import { clientLogos } from "@/content/logos";
 import { homeCta } from "@/content/home";
 
@@ -53,12 +52,6 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
           ))}
-        </div>
-      </section>
-
-      <section className="border-y border-ink/10 bg-surface-muted">
-        <div className="mx-auto max-w-[1440px] px-6 py-section sm:px-10">
-          <StatsRow metrics={milestones} />
         </div>
       </section>
 

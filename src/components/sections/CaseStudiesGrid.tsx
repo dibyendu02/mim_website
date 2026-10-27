@@ -42,7 +42,7 @@ export function CaseStudiesGrid({ studies }: { studies: CaseStudy[] }) {
 
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((study, index) => (
-          <ScrollReveal key={study.slug} delay={(index % 3) * 0.08}>
+          <ScrollReveal key={study.slug} delay={(index % 3) * 0.08} className="h-full">
             <CaseStudyCard study={study} />
           </ScrollReveal>
         ))}
