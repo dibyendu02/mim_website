@@ -10,6 +10,8 @@ interface ButtonProps {
   href: string;
   children: React.ReactNode;
   variant?: ButtonVariant;
+  /** "external" swaps the trailing → for ↗. */
+  arrow?: "forward" | "external";
   className?: string;
 }
 
@@ -19,7 +21,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   ghost: "bg-transparent text-ink hover:text-brand",
 };
 
-export function Button({ href, children, variant = "primary", className }: ButtonProps) {
+export function Button({ href, children, variant = "primary", arrow = "forward", className }: ButtonProps) {
   return (
     <motion.span
       whileHover="hover"
@@ -38,10 +40,10 @@ export function Button({ href, children, variant = "primary", className }: Butto
         <span>{children}</span>
         <motion.span
           aria-hidden
-          variants={{ rest: { x: 0 }, hover: { x: 4 } }}
+          variants={{ rest: { x: 0, y: 0 }, hover: arrow === "external" ? { x: 3, y: -3 } : { x: 4, y: 0 } }}
           transition={{ duration: 0.2, ease: "easeOut" }}
         >
-          →
+          {arrow === "external" ? "↗" : "→"}
         </motion.span>
       </Link>
     </motion.span>

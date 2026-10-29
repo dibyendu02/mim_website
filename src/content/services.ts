@@ -13,26 +13,11 @@ const stockPhoto = (seed: string) => `https://picsum.photos/seed/${seed}/1000/80
 
 export const services: Service[] = [
   {
-    slug: "performance-marketing",
-    image: stockPhoto("performance-marketing"),
-    title: "Performance Marketing",
-    shortDescription: "Paid media that's accountable to a number, not a vibe.",
-    description:
-      "We run paid acquisition across search, social, and programmatic as one connected system — built around a target CAC or ROAS from day one, not vanity reach.",
-    deliverables: [
-      "Full-funnel paid media strategy",
-      "Cross-platform campaign management",
-      "Creative testing at scale",
-      "Weekly performance reporting",
-    ],
-    icon: "target",
-    bentoSize: "lg",
-  },
-  {
     slug: "social-media-management",
     image: stockPhoto("social-media-management"),
-    title: "Social Media Management",
-    shortDescription: "Always-on presence that compounds, not just posts.",
+    title: "Social Media Marketing",
+    shortDescription:
+      "Build a distinctive digital presence through strategic planning, compelling content and consistent social media management that keeps your brand relevant and connected to its audience.",
     description:
       "End-to-end management of always-on channels — strategy, calendar, community, and reporting — so organic and paid pull in the same direction.",
     deliverables: [
@@ -45,10 +30,28 @@ export const services: Service[] = [
     bentoSize: "lg",
   },
   {
+    slug: "performance-marketing",
+    image: stockPhoto("performance-marketing"),
+    title: "Performance Marketing",
+    shortDescription:
+      "Turn advertising investment into measurable opportunities through targeted campaigns, audience insights and continuous optimisation focused on customer acquisition and business growth.",
+    description:
+      "We run paid acquisition across search, social, and programmatic as one connected system — built around a target CAC or ROAS from day one, not vanity reach.",
+    deliverables: [
+      "Full-funnel paid media strategy",
+      "Cross-platform campaign management",
+      "Creative testing at scale",
+      "Weekly performance reporting",
+    ],
+    icon: "target",
+    bentoSize: "lg",
+  },
+  {
     slug: "content-production",
     image: stockPhoto("content-production"),
-    title: "Content & Production",
-    shortDescription: "Photo and video built for how people actually scroll.",
+    title: "Content Production",
+    shortDescription:
+      "Bring your brand to life through high-quality photography, video and creative assets that capture attention, communicate value and strengthen your marketing across digital platforms.",
     description:
       "In-house photography and videography that gives every campaign a steady supply of native-feeling creative, produced fast enough to keep up with paid media's testing cadence.",
     deliverables: [
@@ -61,26 +64,11 @@ export const services: Service[] = [
     bentoSize: "sm",
   },
   {
-    slug: "brand-creative-direction",
-    image: stockPhoto("brand-creative-direction"),
-    title: "Brand & Creative Direction",
-    shortDescription: "A point of view that makes every asset feel like one brand.",
-    description:
-      "Positioning, visual identity, and creative direction that gives every campaign, shoot, and platform a consistent voice — so growth doesn't come at the cost of coherence.",
-    deliverables: [
-      "Brand positioning & voice",
-      "Visual identity systems",
-      "Campaign creative direction",
-      "Brand guidelines",
-    ],
-    icon: "palette",
-    bentoSize: "sm",
-  },
-  {
     slug: "seo-organic-growth",
     image: stockPhoto("seo-organic-growth"),
-    title: "SEO & Organic Growth",
-    shortDescription: "Compounding traffic that doesn't disappear when spend stops.",
+    title: "Search Engine Optimisation",
+    shortDescription:
+      "Improve your visibility across search engines, attract relevant organic traffic and build a stronger foundation for long-term discoverability and growth.",
     description:
       "Technical SEO, content strategy, and organic growth systems designed to compound over quarters — the channel that keeps working after the ad budget is spent elsewhere.",
     deliverables: [
@@ -93,10 +81,28 @@ export const services: Service[] = [
     bentoSize: "sm",
   },
   {
+    slug: "brand-creative-direction",
+    image: stockPhoto("brand-creative-direction"),
+    title: "Brand Strategy & Identity",
+    shortDescription:
+      "Define what makes your brand different through clear positioning, distinctive visual identity and cohesive communication that builds recognition and trust.",
+    description:
+      "Positioning, visual identity, and creative direction that gives every campaign, shoot, and platform a consistent voice — so growth doesn't come at the cost of coherence.",
+    deliverables: [
+      "Brand positioning & voice",
+      "Visual identity systems",
+      "Campaign creative direction",
+      "Brand guidelines",
+    ],
+    icon: "palette",
+    bentoSize: "sm",
+  },
+  {
     slug: "website-conversion-systems",
     image: stockPhoto("website-conversion-systems"),
-    title: "Website & Conversion Systems",
-    shortDescription: "Sites and funnels engineered to convert the traffic you're paying for.",
+    title: "Website Design & Development",
+    shortDescription:
+      "Create purposeful digital experiences that communicate your value, establish credibility and turn visitors into meaningful enquiries and business opportunities.",
     description:
       "Websites, landing pages, and conversion funnels designed and engineered as a system — so every other channel's traffic actually turns into pipeline.",
     deliverables: [

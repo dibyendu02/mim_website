@@ -25,13 +25,15 @@ interface BentoTileProps {
   title: string;
   description: string;
   icon: string;
+  /** 1-based position, shown as "01." before the title. */
+  number?: number;
   href?: string;
   /** Shown on highlighted ("lg") tiles only. */
   points?: string[];
   className?: string;
 }
 
-export function BentoTile({ size, title, description, icon, href, points, className }: BentoTileProps) {
+export function BentoTile({ size, title, description, icon, number, href, points, className }: BentoTileProps) {
   // "lg" tiles are the core services — rendered dark so they read first.
   const highlighted = size === "lg";
 
@@ -65,6 +67,16 @@ export function BentoTile({ size, title, description, icon, href, points, classN
       </div>
 
       <div className="mt-8">
+        {number !== undefined && (
+          <p
+            className={cn(
+              "mb-2 font-display text-sm font-semibold",
+              highlighted ? "text-white/50" : "text-text-muted",
+            )}
+          >
+            {String(number).padStart(2, "0")}.
+          </p>
+        )}
         <h3
           className={cn(
             "font-display font-semibold",

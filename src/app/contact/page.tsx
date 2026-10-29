@@ -16,7 +16,7 @@ export default function ContactPage() {
     <>
       <Hero eyebrow={contactHero.eyebrow} headline={contactHero.headline} body={contactHero.body} size="lg" />
 
-      <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
+      <section id="project-form" className="mx-auto max-w-[1440px] scroll-mt-24 px-6 pb-section sm:px-10">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <ScrollReveal direction="left">
             <div className="rounded-bento border border-ink/10 bg-surface p-8 sm:p-10">

@@ -7,10 +7,12 @@ export function CaseStudyStrip({
   studies,
   eyebrow = "Results",
   headline = "Real outcomes, not vanity metrics.",
+  body,
 }: {
   studies: CaseStudy[];
   eyebrow?: string;
   headline?: string;
+  body?: string;
 }) {
   return (
     <section className="mx-auto max-w-[1440px] px-6 py-section sm:px-10">
@@ -19,6 +21,7 @@ export function CaseStudyStrip({
           <div>
             <p className="text-sm font-semibold uppercase tracking-wide text-brand">{eyebrow}</p>
             <h2 className="mt-3 max-w-xl text-display-md font-display font-semibold text-ink">{headline}</h2>
+            {body && <p className="mt-4 max-w-2xl text-lg text-text-muted">{body}</p>}
           </div>
           <Link href="/case-studies" className="text-sm font-semibold text-ink underline underline-offset-4">
             View all case studies

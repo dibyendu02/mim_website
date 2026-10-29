@@ -26,9 +26,10 @@ export default function ServicesPage() {
 
       <section className="mx-auto max-w-[1440px] px-6 pb-section sm:px-10">
         <BentoGrid>
-          {services.map((service) => (
+          {services.map((service, index) => (
             <BentoTile
               key={service.slug}
+              number={index + 1}
               size={service.bentoSize}
               title={service.title}
               description={service.shortDescription}

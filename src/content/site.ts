@@ -2,7 +2,7 @@
 
 export const site = {
   name: "MiM Digital",
-  tagline: "Eastern India's growth marketing partner.",
+  tagline: "Structure drives growth.",
   primaryCta: { label: "Book a Strategy Call", href: "/contact" },
 };
 
@@ -20,12 +20,12 @@ export const footerLinks = {
     { label: "Contact", href: "/contact" },
   ],
   services: [
+    { label: "Social Media Marketing", href: "/services#social-media-management" },
     { label: "Performance Marketing", href: "/services#performance-marketing" },
-    { label: "Content & Production", href: "/services#content-production" },
-    { label: "Social Media Management", href: "/services#social-media-management" },
-    { label: "Brand & Creative Direction", href: "/services#brand-creative-direction" },
-    { label: "SEO & Organic Growth", href: "/services#seo-organic-growth" },
-    { label: "Website & Conversion Systems", href: "/services#website-conversion-systems" },
+    { label: "Content Production", href: "/services#content-production" },
+    { label: "Search Engine Optimisation", href: "/services#seo-organic-growth" },
+    { label: "Brand Strategy & Identity", href: "/services#brand-creative-direction" },
+    { label: "Website Design & Development", href: "/services#website-conversion-systems" },
   ],
 };
 

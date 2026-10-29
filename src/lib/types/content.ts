@@ -45,11 +45,25 @@ export interface CaseStudy {
   summary: string;
   heroMetric: Metric;
   metrics: Metric[];
+  introduction: string;
   challenge: string;
-  approach: string;
-  results: string;
+  strategy: string;
+  creativeDirection: { concept: string; body: string };
+  execution: { body: string; deliverables: string[] };
+  outcomes: string;
+  conclusion: string;
   gallery: GalleryItem[];
   testimonial?: Testimonial;
+}
+
+export interface Industry {
+  slug: string;
+  title: string;
+  description: string;
+  /** Real project imagery only — the card renders text-only without it. */
+  image?: string;
+  /** Where to see related work, e.g. a case study, once one exists. */
+  href?: string;
 }
 
 export interface TeamMember {
